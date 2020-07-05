@@ -1,0 +1,48 @@
+.short-sentences {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #eee;
+
+    button {
+        margin: 10px 20px;
+        background-color: blueviolet;
+        color: #fff;
+        overflow: hidden;
+
+        &:hover::before {
+            left: 0;
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            background: linear-gradient(30deg, #fff, transparent, #fff);
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            transition: .5s;
+        }
+
+        &:hover {
+            box-shadow: 3px 4px 3px #888;
+        }
+    }
+
+    textarea {
+        font-size: 30px;
+        font-weight: 700;
+        padding: 20px;
+        box-shadow: 3px 4px 3px #888;
+    }
+
+    .ant-upload-list-item-name.ant-upload-list-item-name-icon-count-1 {
+        background-color: #ccc;
+        display: inline;
+    }
+}

@@ -1,0 +1,119 @@
+/* table 鏍峰紡 */
+.toolbar {
+  border: 1px solid #ccc;
+}
+
+.text {
+  border: 1px solid #ccc;
+  height: 400px;
+}
+
+.editor-container .title {
+  font-size: 30px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.editor-container .title label {
+  margin-left: 20px;
+}
+
+.editor-container .title label input {
+  line-height: 30px;
+  vertical-align: middle;
+  border: none;
+  font-size: 20px;
+  border-bottom: 2px solid #333;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.editor-container .title label input:focus {
+  outline: none;
+}
+
+.editor-container .title label input::placeholder {
+  color: #666;
+  font-size: 20px;
+}
+
+.editor-container table {
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.editor-container .btn {
+  text-align: center;
+}
+
+.editor-container .btn button {
+  margin: 10px 20px;
+  background-color: blueviolet;
+  padding: 5px 12px;
+  border: 1px solid;
+  outline: none;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 10px;
+  transition: .5s;
+  position: relative;
+  overflow: hidden;
+}
+
+.editor-container .btn button::before {
+  content: "";
+  display: block;
+  background: linear-gradient(30deg, #fff, transparent, #fff);
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: .5s;
+}
+
+.editor-container .btn button:hover {
+  box-shadow: 3px 4px 3px #888;
+}
+
+.editor-container .btn button:hover::before {
+  left: 0;
+}
+
+/* table */
+table {
+  margin-top: 15px;
+  border-collapse: collapse;
+  border: 1px solid #aaa;
+  width: 100%;
+}
+
+table th {
+  vertical-align: baseline;
+  padding: 5px 15px 5px 6px;
+  background-color: #3F3F3F;
+  border: 1px solid #3F3F3F;
+  text-align: left;
+  color: #fff;
+}
+
+table td {
+  vertical-align: text-top;
+  padding: 6px 15px 6px 6px;
+  border: 1px solid #aaa;
+}
+
+table tr:nth-child(odd) {
+  background-color: #F5F5F5;
+}
+
+table tr:nth-child(even) {
+  background-color: #fff;
+}
+
+/* img{
+max-width: 400px !important;
+} */
