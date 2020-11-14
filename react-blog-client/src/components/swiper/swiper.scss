@@ -1,0 +1,39 @@
+@media screen and (min-width: 960px) {
+  .swiper-container {
+    width: 57%;
+    height: 220px;
+    margin: 0;
+    display: inline-block;
+
+    .swiper-pagination-bullet {
+      background-color: #f90;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      transition: all .3s;
+      color: #fff;
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    .swiper-button-prev {
+      transform: translateX(50px);
+    }
+
+    &:hover {
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+}
+
+.swiper-container img {
+  width: 100%;
+  height: 100%;
+}

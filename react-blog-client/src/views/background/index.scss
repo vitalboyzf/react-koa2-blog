@@ -1,0 +1,19 @@
+.back {
+  width: 100%;
+
+  nav {
+    background-color: #555;
+    text-align: center;
+    border-radius: 10px;
+    padding:5px 0;
+    a {
+      margin-left: 30px;
+      font-size: 20px;
+      color:#ffffff;
+     font-weight: bold;
+      &.active {
+        color: red;
+      }
+    }
+  }
+}
