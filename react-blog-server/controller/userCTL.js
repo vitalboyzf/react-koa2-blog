@@ -51,7 +51,6 @@ class UserCTL {
     }
     // 用户登录，如果存在登录用户，返回一个token令牌
     async login(ctx) {
-        console.log("登录", ctx.request.body);
         ctx.verifyParams({
             name: { type: "string", require: true },
             password: { type: "string", require: true }

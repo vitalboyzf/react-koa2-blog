@@ -3,12 +3,22 @@ import baseURL from "./baseUrl";
 const sentencesInstance = axios.create({
     baseURL: `${baseURL}/user`
 });
-sentencesInstance.interceptors.response.use(res => {
-    if (res.status === 200) {
-        return res.data;
-    } else {
-        return "error";
+sentencesInstance.interceptors.request.use(config => {
+    if (config.method === "get" && config.url === "/whoami" && window.localStorage.getItem("token") !== null) {
+        config.headers["authorization"] = window.localStorage.getItem("token");
     }
+    return config;
+});
+sentencesInstance.interceptors.response.use(res => {
+    if (res.config.method === "post" && res.config.url === "/login") {
+        if (res.headers["authorization"]) {
+            window.localStorage.setItem("token", res.headers["authorization"]);
+        }
+    }
+    return res.data;
+}, (err) => {
+    window.localStorage.removeItem("token");
+    return null;
 });
 export function whoami() {
     return sentencesInstance.get("/whoami");

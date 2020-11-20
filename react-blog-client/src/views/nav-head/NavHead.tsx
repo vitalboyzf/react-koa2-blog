@@ -144,7 +144,7 @@ function NavHead(props: IProps) {
                             }} type={"primary"}>提交修改</Button>
                             <Button onClick={() => {
                                 // token设置过期
-                                document.cookie = `token=;"max-age"=-1}`;
+                                // document.cookie = `token=;"max-age"=-1}`;
                                 message.success("注销成功", .5);
                                 setShow(false);
                                 props.delUser();

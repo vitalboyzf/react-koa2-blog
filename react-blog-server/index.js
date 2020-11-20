@@ -36,7 +36,9 @@ app.use(bodyParser({
         keepExtensions: true
     }
 }));
-app.use(cors());
+app.use(cors({
+    exposeHeaders:""
+}));
 // 注册每一个router
 routing(app);
 // 监听2000端口

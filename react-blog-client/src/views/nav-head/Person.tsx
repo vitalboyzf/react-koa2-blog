@@ -7,7 +7,7 @@ import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { login, updateUser } from "../../api/user";
 interface IProps extends RouteComponentProps {
     user: any,
-    getUser: () => void
+    asyncGetUser: () => void
     delUser: () => void
 }
 
@@ -97,15 +97,13 @@ function Person(props: IProps) {
                     updateUser({ id: props.user._id, name, password: pwd, avatar_url, gender }).then(res => {
                         login(name, pwd).then((res: any) => {
                             if (res.status === 200) {
-                                document.cookie = `token=${res.data}`;
-                                props.getUser();
+                                props.asyncGetUser();
                             }
                         });
                         message.success("修改成功", .3);
                     });
                 }} type={"primary"}>提交修改</Button>
                 <Button onClick={() => {
-                    document.cookie = `token=; expires=${new Date(0).toUTCString()}`;
                     message.success("注销成功", .5);
                     props.delUser();
                     props.history.push("/login");
@@ -124,8 +122,8 @@ const mapStatesToProps = (state: any) => {
 };
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        getUser() {
-            dispatch({ type: "user/getUser" });
+        asyncGetUser() {
+            dispatch({ type: "user/asyncGetUser" });
         },
         delUser() {
             dispatch({ type: "user/delUser" });

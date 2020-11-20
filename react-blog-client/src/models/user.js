@@ -8,6 +8,8 @@ export default {
             return userInfo || {};
         },
         delUser(state) {
+            localStorage.removeItem("token");
+            document.cookie = "token=; max-age=-1"
             return {};
         }
     },
