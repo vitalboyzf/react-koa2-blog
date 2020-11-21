@@ -7,13 +7,13 @@ const bodyParser = require("koa-body");
 const error = require("koa-json-error");
 const koaStatic = require("koa-static");
 const koaParameter = require("koa-parameter");
-app.keys = ["virtual","zf"];
+app.keys = ["virtual", "zf"];
 require("./models/createConnection");
-// require(".models/Blog");
-// require(".models/comment");
-// require(".models/Message");
-// require(".models/Sentences");
-// require(".models/User");
+// require("./models/Blog");
+// require("./models/comment");
+// require("./models/Message");
+// require("./models/Sentences");
+// require("./models/User");
 app.use(koaStatic(path.join(__dirname, "./public")));
 // 使用koaParameter处理校验请求体
 app.use(koaParameter(app));
@@ -36,8 +36,10 @@ app.use(bodyParser({
         keepExtensions: true
     }
 }));
+// 配置跨域
 app.use(cors({
-    exposeHeaders:""
+    allowHeaders: "authorization,Content-Type,Content-Length, Authorization, Accept,X-Requested-With",
+    exposeHeaders: ["authorization"]
 }));
 // 注册每一个router
 routing(app);

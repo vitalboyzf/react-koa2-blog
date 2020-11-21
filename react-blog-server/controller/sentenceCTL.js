@@ -14,7 +14,7 @@ class SentencesCTL {
         ctx.body = sentences;
     }
     async query(ctx) {
-        const sentences = await Sentences.find();
+        const sentences = await Sentences.find().sort({ publish_date: -1 });
         if (!sentences) ctx.throw(404, "木有找到");
         ctx.body = {
             status: 200,
